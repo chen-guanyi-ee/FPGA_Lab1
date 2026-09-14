@@ -4,7 +4,8 @@
 100MHZ clk 1秒 27bit
 不要用FSM?
 
-'''clk[clk_max] clk_max =25  clk_max <= clk_max + 1;
+```
+clk[clk_max] clk_max =25  clk_max <= clk_max + 1;
 always @(*) begin譬如最後一次八秒左右 假設clk_max = 30
   if (rst_i) begin
     clk_max = 25;
@@ -17,5 +18,5 @@ always @(*) begin譬如最後一次八秒左右 假設clk_max = 30
   end
 end
 我們設定一個parameter random_clk[3:0]
-'''
+```
 clk [30:0]會不會皓太多資源?有沒有更好的方法?隨機方式可以更好?
