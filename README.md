@@ -11,7 +11,6 @@ always @(posedge clk) begin
   clk_cnt = clk_cnt + 1;
   if (rst_i) begin
     clk_max = 0;
-    o_random_out = clk_cnt[3:0];
     clk_cnt=0;
   end else if(clk_cnt[25+clk_max]==1)begin
     o_random_out <= {o_random_out[2:0], o_random_out[3] ^ o_random_out[2]};
