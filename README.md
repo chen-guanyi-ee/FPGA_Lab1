@@ -17,8 +17,8 @@ always @(posedge clk) begin
     lfsr <= {lfsr[3:0],lfsr[4] ^ lfsr[2]};
     clk_max <= clk_max + 1;
     clk_cnt=0;
+    o_random_out <= lfsr[3:0];
   end
-  o_random_out <= lfsr[3:0];
 end
 ```
 
