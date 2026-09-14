@@ -13,7 +13,7 @@ always @(posedge clk) begin
   if (rst_i) begin
     clk_max = 0;
     clk_cnt=0;
-  end else if(clk_cnt[25+clk_max]==1)begin
+  end else if(clk_cnt[25+clk_max])begin
     lfsr <= {lfsr[3:0],lfsr[4] ^ lfsr[2]};
     clk_max <= clk_max + 1;
     clk_cnt=0;
