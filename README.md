@@ -5,24 +5,24 @@
 不要用FSM?
 
 ```
-logic clk[30:0]
-logic random_clk[3:0]
-always @(posedge clk) begin譬如最後一次八秒左右 假設clk_max = 30
+logic [30:0]clk_cnt;
+logic [2:0]random_clk;
+always @(posedge clk) begin
+  clk_cnt = clk_cnt + 1;
   if (rst_i) begin
-    clk_max = 25;
-    random_clk = clk[3:0];
-  end else if(clk[clk_max]==1)begin
-    o_random_out <= 0_random_out*2 + random_clk;
+    clk_max = 0;
+    o_random_out = clk_cnt[3:0];
+    clk_cnt=0;
+  end else if(clk_cnt[25+clk_max]==1)begin
+    o_random_out <= {o_random_out[2:0], o_random_out[3] ^ o_random_out[2]};
     clk_max <= clk_max + 1;
-    clk=0;
-  end else if begin(clk_max == 30)
-    clk_max = 50
+    clk_cnt=0;
   end
 end
 ```
 
 ```
 剩下
-clk [30:0]會不會耗太多資源?有沒有更好的方法?隨機方式可以更好?bonus要做什麼
+clk_cnt [30:0]會不會耗太多資源?有沒有更好的方法?隨機方式可以更好?bonus要做什麼
 vivado 大架構
 ```
