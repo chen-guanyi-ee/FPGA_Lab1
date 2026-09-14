@@ -6,13 +6,16 @@
 
 ```
 clk[clk_max] clk_max =25  clk_max <= clk_max + 1;
+
+logic clk[30:0]
 always @(posedge clk) begin譬如最後一次八秒左右 假設clk_max = 30
   if (rst_i) begin
     clk_max = 25;
     random_clk = clk[3:0];
   end else if(clk[clk_max]==1)begin
     o_random_out <= 0_random_out*2 + random_clk;
-   clk_max <= clk_max + 1;
+    clk_max <= clk_max + 1;
+    clk=0;
   end else if begin(clk_max == 30)
     clk_max = 50
   end
