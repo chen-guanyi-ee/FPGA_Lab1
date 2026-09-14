@@ -5,9 +5,8 @@
 不要用FSM?
 
 ```
-clk[clk_max] clk_max =25  clk_max <= clk_max + 1;
-
 logic clk[30:0]
+logic random_clk[3:0]
 always @(posedge clk) begin譬如最後一次八秒左右 假設clk_max = 30
   if (rst_i) begin
     clk_max = 25;
@@ -20,7 +19,6 @@ always @(posedge clk) begin譬如最後一次八秒左右 假設clk_max = 30
     clk_max = 50
   end
 end
-我們設定一個parameter random_clk[3:0]
 ```
 
 ```
