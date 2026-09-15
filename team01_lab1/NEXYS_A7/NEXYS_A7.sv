@@ -99,12 +99,24 @@ always_ff @(posedge CLK100MHZ or posedge BTNC) begin
     else reset_sync <= {reset_sync[0], 1'b0};
 end
 wire rst = reset_sync[1];
-wire BTNU_down;
+(* ASYNC_REG = "TRUE" *) logic btnu_meta, btnu_sync;
+logic btnu_prev;
+wire BTNU_down = btnu_sync & ~btnu_prev;
 wire [3:0] random_value;
 wire [6:0] segments;
 wire digit_blank;
-Debounce deb0(.i_in(BTNU), .i_clk(CLK100MHZ), .i_rst(rst),
-              .o_pos(BTNU_down), .o_neg(), .o_debounced());
+// Two-flop synchronization plus one-cycle rising-edge pulse.
+always_ff @(posedge CLK100MHZ or posedge rst) begin
+    if (rst) begin
+        btnu_meta <= 1'b0;
+        btnu_sync <= 1'b0;
+        btnu_prev <= 1'b0;
+    end else begin
+        btnu_meta <= BTNU;
+        btnu_sync <= btnu_meta;
+        btnu_prev <= btnu_sync;
+    end
+end
 Top top0(.i_clk(CLK100MHZ), .i_rst(rst), .i_start(BTNU_down),
          .o_random_out(random_value));
 // One hexadecimal digit needs no multiplexing counter or digit-select mux.
