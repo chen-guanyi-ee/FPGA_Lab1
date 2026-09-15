@@ -27,3 +27,19 @@ end
 clk_cnt [30:0]會不會耗太多資源?有沒有更好的方法?隨機方式可以更好?bonus要做什麼
 vivado 大架構
 ```
+
+## 2026/09/15 工作紀錄
+
+- 完成 `Top.sv`：16-bit LFSR、4-bit (`0-F`) 隨機輸出、逐步降低更新頻率並停止。
+- 修正 reset/debounce 與七段顯示器連接，確認 Vivado 可辨識並完成 synthesis、implementation、bitstream。
+- Nexys A7 已透過 JTAG 成功下載 bitstream。
+
+### Vivado Slice 表現
+
+| 資源 | 使用量 | 使用率 |
+|---|---:|---:|
+| Slice | 31 | 0.20% |
+| Slice LUT | 99 | 0.16% |
+| Slice Register | 77 | 0.06% |
+
+Slice = 31，符合講義 baseline `Slice < 40`。

@@ -92,52 +92,35 @@ module NEXYS_A7(
     );
     
     
+// Asynchronous assertion, synchronous release of the global reset.
+(* ASYNC_REG = "TRUE" *) logic [1:0] reset_sync;
+always_ff @(posedge CLK100MHZ or posedge BTNC) begin
+    if (BTNC) reset_sync <= 2'b11;
+    else reset_sync <= {reset_sync[0], 1'b0};
+end
+wire rst = reset_sync[1];
 wire BTNU_down;
-wire[3:0] digit0,digit1,digit2,digit3,digit4,digit5,digit6,digit7;
-
-    Seven_Segment_Display seven0(
-    	.i_clk(CLK100MHZ),
-    	.i_rst(BTNC),
-    	.i_digit0(digit0),
-    	.i_digit1(digit1),
-    	.i_digit2(digit2),
-    	.i_digit3(digit3),
-    	.i_digit4(digit4),
-    	.i_digit5(digit5),
-    	.i_digit6(digit6),
-    	.i_digit7(digit7),
-    	.CA(CA),
-    	.CB(CB),
-    	.CC(CC),
-    	.CD(CD),
-    	.CE(CE),
-    	.CF(CF),
-    	.CG(CG),
-    	.o_an(AN)
-    );
-
-    Debounce deb0(
-        .i_in(BTNU),
-        .i_clk(CLK100MHZ),
-        .i_rst(BTNC),
-        .o_pos(BTNU_down)
-    );
-    
-    Top top0(
-	.i_clk(CLK100MHZ),
-	.i_rst(BTNC),
-	.i_start(BTNU_down),
-	.o_random_out(random_value)
-    );
-    
-    assign digit0 = 10;
-    assign digit1 = 10;
-    assign digit2 = 10;
-    assign digit3 = 10;
-    assign digit4 = 10;
-    assign digit5 = 10;
-    assign digit6 = 10;
-    assign digit7 = 10;
-
-
+wire [3:0] random_value;
+wire [6:0] segments;
+wire digit_blank;
+Debounce deb0(.i_in(BTNU), .i_clk(CLK100MHZ), .i_rst(rst),
+              .o_pos(BTNU_down), .o_neg(), .o_debounced());
+Top top0(.i_clk(CLK100MHZ), .i_rst(rst), .i_start(BTNU_down),
+         .o_random_out(random_value));
+// One hexadecimal digit needs no multiplexing counter or digit-select mux.
+Display_digit #(.HEX_MODE(1)) display0(
+    .i_digit(random_value), .seg(segments), .an(digit_blank));
+assign {CG,CF,CE,CD,CC,CB,CA} = segments;
+assign AN = {7'b1111111, digit_blank};
+assign DP = 1'b1;
+assign LED = 16'b0;
+assign {LED16_B,LED16_G,LED16_R,LED17_B,LED17_G,LED17_R} = 6'b0;
+assign {VGA_R,VGA_G,VGA_B,VGA_HS,VGA_VS} = 14'b0;
+assign SD_RESET = 1'b0;
+assign {ACL_MOSI,ACL_SCLK,ACL_CSN} = 3'b001;
+assign TMP_SCL = 1'b1;
+assign {M_CLK,M_LRSEL,AUD_PWM,AUD_SD} = 4'b0;
+assign {UART_RXD_OUT,UART_CTS} = 2'b11;
+assign {ETH_MDC,ETH_RSTN,ETH_TXEN,ETH_TXD} = 5'b0;
+assign QSPI_CSN = 1'b1;
 endmodule
