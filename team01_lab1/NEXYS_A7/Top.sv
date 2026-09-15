@@ -1,51 +1,49 @@
-module Top #(parameter integer BASE_BITS = 23) (
-    input logic i_clk, i_rst, i_start,
+// Simple counter-bit timing scheme (as described in README.md).
+module Top (
+    input  logic       i_clk,
+    input  logic       i_rst,
+    input  logic       i_start,
     output logic [3:0] o_random_out
 );
-    // 4 updates at each of 83.9, 167.8, 335.5, 671.1 ms: 5.03 s.
-    localparam integer TIMER_BITS = BASE_BITS + 3;
-    logic [TIMER_BITS-1:0] timer_r, reload;
-    logic [1:0] speed_r, count_r;
-    logic running_r;
-    logic [15:0] lfsr_r;
-    always_comb begin
-        case (speed_r)
-            0: reload = {3'b000, {BASE_BITS{1'b1}}};
-            1: reload = {2'b00, {(BASE_BITS+1){1'b1}}};
-            2: reload = {1'b0, {(BASE_BITS+2){1'b1}}};
-            default: reload = {TIMER_BITS{1'b1}};
-        endcase
-    end
+    logic [28:0] clk_cnt;
+    logic [1:0]  clk_max;
+    logic [1:0]  update_cnt;
+    logic [4:0]  lfsr;
+    logic        running;
+
     always_ff @(posedge i_clk or posedge i_rst) begin
         if (i_rst) begin
-            lfsr_r <= 16'h1;
-            timer_r <= '0;
-            speed_r <= '0;
-            count_r <= '0;
-            running_r <= 1'b0;
-            o_random_out <= '0;
+            clk_cnt       <= '0;
+            clk_max       <= '0;
+            update_cnt    <= '0;
+            lfsr          <= 5'b00001;
+            o_random_out  <= '0;
+            running       <= 1'b0;
         end else begin
-            // Free-running maximal-length LFSR; button timing selects the sample.
-            lfsr_r <= {lfsr_r[14:0], lfsr_r[15] ^ lfsr_r[13] ^ lfsr_r[12] ^ lfsr_r[10]};
-            if (!running_r) begin
+            // x^5 + x^3 + 1: nonzero maximal-length pseudo-random sequence.
+            lfsr <= {lfsr[3:0], lfsr[4] ^ lfsr[2]};
+
+            if (!running) begin
                 if (i_start) begin
-                    running_r <= 1'b1;
-                    speed_r <= '0;
-                    count_r <= '0;
-                    timer_r <= {3'b000, {BASE_BITS{1'b1}}};
-                    o_random_out <= lfsr_r[3:0];
+                    running    <= 1'b1;
+                    clk_cnt    <= '0;
+                    clk_max    <= '0;
+                    update_cnt <= '0;
                 end
-            end else if (timer_r != 0) begin
-                timer_r <= timer_r - 1'b1;
             end else begin
-                o_random_out <= lfsr_r[3:0];
-                timer_r <= reload;
-                count_r <= count_r + 1'b1;
-                if (count_r == 2'd3) begin
-                    if (speed_r == 2'd3) running_r <= 1'b0;
-                    else begin
-                        speed_r <= speed_r + 1'b1;
-                        timer_r <= (reload << 1) | {{(TIMER_BITS-1){1'b0}}, 1'b1};
+                clk_cnt <= clk_cnt + 1'b1;
+                // Bit 25, 26, 27, then 28 selects progressively slower rates.
+                if (clk_cnt[25 + clk_max]) begin
+                    clk_cnt      <= '0;
+                    o_random_out <= lfsr[3:0];
+                    update_cnt   <= update_cnt + 1'b1;
+
+                    if (update_cnt == 2'd3) begin
+                        update_cnt <= '0;
+                        if (clk_max == 2'd3)
+                            running <= 1'b0;
+                        else
+                            clk_max <= clk_max + 1'b1;
                     end
                 end
             end
