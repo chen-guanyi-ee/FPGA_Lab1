@@ -1,9 +1,9 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Tue Sep 15 09:51:50 2026
+| Date         : Tue Sep 15 10:40:16 2026
 | Host         : DESKTOP-6EVF12B running 64-bit major release  (build 9200)
-| Command      : report_drc -file C:/Users/DCLAB/Documents/Codex/2026-09-15/https-github-com-chen-guanyi-ee/outputs/FPGA_Lab1/drc.rpt
+| Command      : report_drc -file NEXYS_A7_drc_routed.rpt -pb NEXYS_A7_drc_routed.pb -rpx NEXYS_A7_drc_routed.rpx
 | Design       : NEXYS_A7
 | Device       : xc7a100tcsg324-1
 | Speed File   : -1
@@ -20,17 +20,15 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: impl_1
+          Floorplan: design_1
       Design limits: <entire design considered>
            Ruledeck: default
              Max checks: <unlimited>
-             Checks found: 10
+             Checks found: 8
 +----------+----------+-----------------------------------------------------+--------+
 | Rule     | Severity | Description                                         | Checks |
 +----------+----------+-----------------------------------------------------+--------+
 | CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1      |
-| PDRC-142 | Warning  | SLICE_PairEqSame_B6B5_WARN                          | 1      |
-| PDRC-144 | Warning  | SLICE_PairEqSame_C6C5_WARN                          | 1      |
 | PLIO-3   | Warning  | Placement Constraints Check for IO constraints      | 7      |
 +----------+----------+-----------------------------------------------------+--------+
 
@@ -47,16 +45,6 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
-Related violations: <none>
-
-PDRC-142#1 Warning
-SLICE_PairEqSame_B6B5_WARN  
-Luts B6LUT and B5LUT in use in site SLICE_X2Y88 with different equations without A6 pin connected to Global Logic High.
-Related violations: <none>
-
-PDRC-144#1 Warning
-SLICE_PairEqSame_C6C5_WARN  
-Luts C6LUT and C5LUT in use in site SLICE_X2Y88 with different equations without A6 pin connected to Global Logic High.
 Related violations: <none>
 
 PLIO-3#1 Warning
