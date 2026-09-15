@@ -5,27 +5,24 @@ module Top (
     input  logic       i_start,
     output logic [3:0] o_random_out
 );
-    logic [28:0] clk_cnt;
-    logic [1:0]  clk_max;
+    logic [29:0] clk_cnt;
+    logic [2:0]  clk_max; // 0..3 active rates, 4 = idle
     logic [1:0]  update_cnt;
     logic [4:0]  lfsr;
-    logic        running;
 
     always_ff @(posedge i_clk or posedge i_rst) begin
         if (i_rst) begin
             clk_cnt       <= '0;
-            clk_max       <= '0;
+            clk_max       <= 3'd4;
             update_cnt    <= '0;
             lfsr          <= 5'b00001;
             o_random_out  <= '0;
-            running       <= 1'b0;
         end else begin
             // x^5 + x^3 + 1: nonzero maximal-length pseudo-random sequence.
             lfsr <= {lfsr[3:0], lfsr[4] ^ lfsr[2]};
 
-            if (!running) begin
+            if (clk_max == 3'd4) begin
                 if (i_start) begin
-                    running    <= 1'b1;
                     clk_cnt    <= '0;
                     clk_max    <= '0;
                     update_cnt <= '0;
@@ -40,8 +37,8 @@ module Top (
 
                     if (update_cnt == 2'd3) begin
                         update_cnt <= '0;
-                        if (clk_max == 2'd3)
-                            running <= 1'b0;
+                        if (clk_max == 3'd3)
+                            clk_max <= 3'd4;
                         else
                             clk_max <= clk_max + 1'b1;
                     end

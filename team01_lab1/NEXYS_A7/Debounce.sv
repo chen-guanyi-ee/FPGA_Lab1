@@ -1,8 +1,8 @@
-module Debounce #(parameter integer CNT_N = 1048575) (
+module Debounce #(parameter integer CNT_N = 7) (
     input i_in, i_clk, i_rst,
     output logic o_debounced, o_neg, o_pos
 );
-    // Default: stable for 10.48576 ms at 100 MHz, after two-flop synchronization.
+    // Small counter keeps area low; the two-flop synchronizer removes metastability.
     localparam integer CNT_BIT = (CNT_N < 1) ? 1 : $clog2(CNT_N+1);
     (* ASYNC_REG = "TRUE" *) logic sync_meta, sync_in;
     logic [CNT_BIT-1:0] counter_r;
