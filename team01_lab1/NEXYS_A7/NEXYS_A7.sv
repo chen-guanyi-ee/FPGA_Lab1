@@ -103,8 +103,9 @@ wire rst = reset_sync[1];
 logic btnu_prev;
 wire BTNU_down = btnu_sync & ~btnu_prev;
 wire [3:0] random_value;
-wire [6:0] segments;
-wire digit_blank;
+wire scan_value;
+wire [3:0] decimal_tens = (random_value >= 4'd10) ? 4'd1 : 4'd0;
+wire [3:0] decimal_ones = (random_value >= 4'd10) ? (random_value - 4'd10) : random_value;
 // Two-flop synchronization plus one-cycle rising-edge pulse.
 always_ff @(posedge CLK100MHZ or posedge rst) begin
     if (rst) begin
@@ -118,12 +119,14 @@ always_ff @(posedge CLK100MHZ or posedge rst) begin
     end
 end
 Top top0(.i_clk(CLK100MHZ), .i_rst(rst), .i_start(BTNU_down),
-         .o_random_out(random_value));
-// One hexadecimal digit needs no multiplexing counter or digit-select mux.
-Display_digit #(.HEX_MODE(1)) display0(
-    .i_digit(random_value), .seg(segments), .an(digit_blank));
-assign {CG,CF,CE,CD,CC,CB,CA} = segments;
-assign AN = {7'b1111111, digit_blank};
+         .o_random_out(random_value), .o_scan(scan_value));
+// Display decimal 00-15 on two multiplexed digits; six digits are blank (10).
+Seven_Segment_Display display(
+    .i_clk(CLK100MHZ), .i_rst(rst), .i_scan(scan_value),
+    .i_digit0(decimal_ones), .i_digit1(decimal_tens),
+    .i_digit2(4'd10), .i_digit3(4'd10), .i_digit4(4'd10),
+    .i_digit5(4'd10), .i_digit6(4'd10), .i_digit7(4'd10),
+    .CA(CA), .CB(CB), .CC(CC), .CD(CD), .CE(CE), .CF(CF), .CG(CG), .o_an(AN));
 assign DP = 1'b1;
 assign LED = 16'b0;
 assign {LED16_B,LED16_G,LED16_R,LED17_B,LED17_G,LED17_R} = 6'b0;
