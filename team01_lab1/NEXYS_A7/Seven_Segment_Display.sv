@@ -1,6 +1,5 @@
 module Seven_Segment_Display(
- input i_clk,i_rst,input i_scan,input [3:0] i_digit0,i_digit1,i_digit2,i_digit3,
- input [3:0] i_digit4,i_digit5,i_digit6,i_digit7,
+ input i_clk,i_rst,input i_scan,input [3:0] random_value,
  output CA,CB,CC,CD,CE,CF,CG, output logic [7:0] o_an);
  logic scan_r; logic [3:0] selected; logic [6:0] seg;
  assign scan_r = i_scan;

@@ -11,7 +11,7 @@ module Top (
     logic [4:0]  lfsr;
     logic        round;
 
-    always_ff @(posedge i_clk or posedge i_rst) begin
+    always_ff @(posedge i_clk or posedge i_rst or posedge i_start) begin
         if (i_rst) begin
             clk_max       <= 3'd4;
             o_random_out  <= '0;

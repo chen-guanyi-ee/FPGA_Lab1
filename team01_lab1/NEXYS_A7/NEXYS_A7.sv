@@ -90,43 +90,31 @@ module NEXYS_A7(
     inout [3:0]QSPI_DQ,
     output QSPI_CSN
     );
-    
-    
-// Asynchronous assertion, synchronous release of the global reset.
-(* ASYNC_REG = "TRUE" *) logic [1:0] reset_sync;
-always_ff @(posedge CLK100MHZ or posedge BTNC) begin
-    if (BTNC) reset_sync <= 2'b11;
-    else reset_sync <= {reset_sync[0], 1'b0};
-end
-wire rst = reset_sync[1];
-(* ASYNC_REG = "TRUE" *) logic btnu_meta, btnu_sync;
-logic btnu_prev;
-wire BTNU_down = btnu_sync & ~btnu_prev;
 wire [3:0] random_value;
 wire scan_value;
-wire [3:0] decimal_tens = (random_value >= 4'd10) ? 4'd1 : 4'd0;
-wire [3:0] decimal_ones = (random_value >= 4'd10) ? (random_value - 4'd10) : random_value;
-// Two-flop synchronization plus one-cycle rising-edge pulse.
-always_ff @(posedge CLK100MHZ or posedge rst) begin
-    if (rst) begin
-        btnu_meta <= 1'b0;
-        btnu_sync <= 1'b0;
-        btnu_prev <= 1'b0;
-    end else begin
-        btnu_meta <= BTNU;
-        btnu_sync <= btnu_meta;
-        btnu_prev <= btnu_sync;
-    end
-end
-Top top0(.i_clk(CLK100MHZ), .i_rst(rst), .i_start(BTNU_down),
+Top top0(.i_clk(CLK100MHZ), .i_rst(BTNC), .i_start(BTNU),
          .o_random_out(random_value), .o_scan(scan_value));
-// Display decimal 00-15 on two multiplexed digits; six digits are blank (10).
-Seven_Segment_Display display(
-    .i_clk(CLK100MHZ), .i_rst(rst), .i_scan(scan_value),
-    .i_digit0(decimal_ones), .i_digit1(decimal_tens),
-    .i_digit2(4'd10), .i_digit3(4'd10), .i_digit4(4'd10),
-    .i_digit5(4'd10), .i_digit6(4'd10), .i_digit7(4'd10),
-    .CA(CA), .CB(CB), .CC(CC), .CD(CD), .CE(CE), .CF(CF), .CG(CG), .o_an(AN));
+logic [3:0] decimal_tens, decimal_ones, selected_digit;
+logic [6:0] seg;
+assign decimal_tens = (random_value >= 4'd10) ? 4'd1 : 4'd0;
+assign decimal_ones = (random_value >= 4'd10) ? (random_value - 4'd10) : random_value;
+assign selected_digit = scan_value ? decimal_tens : decimal_ones;
+assign {CG,CF,CE,CD,CC,CB,CA} = seg;
+assign AN = scan_value ? 8'b11111101 : 8'b11111110;
+always_comb begin
+  case(selected_digit)
+   4'd0: seg = 7'b1000000;
+   4'd1: seg = 7'b1111001;
+   4'd2: seg = 7'b0100100;
+   4'd3: seg = 7'b0110000;
+   4'd4: seg = 7'b0011001;
+   4'd5: seg = 7'b0010010;
+   4'd6: seg = 7'b0000010;
+   4'd7: seg = 7'b1111000;
+   4'd8: seg = 7'b0000000;
+   default: seg = 7'b0010000;
+  endcase
+end
 assign DP = 1'b1;
 assign LED = 16'b0;
 assign {LED16_B,LED16_G,LED16_R,LED17_B,LED17_G,LED17_R} = 6'b0;
