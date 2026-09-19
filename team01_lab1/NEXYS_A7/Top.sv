@@ -31,9 +31,7 @@ module Top (
                 if (clk_cnt[25 + clk_max]) begin
                     clk_cnt      <= '0;
                     o_random_out <= lfsr[3:0];
-                    if (round) begin
-                        clk_max <= clk_max + 1'b1;
-                    end
+                    clk_max <= clk_max + round;
                     round <= ~round;
                 end
             end
