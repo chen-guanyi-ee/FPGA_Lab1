@@ -1,0 +1,192 @@
+name	ref_name	loc	bel
+ACL_CSN_OBUF_inst	OBUF	IOB_X0Y126	IOB33.OUTBUF
+ACL_MOSI_OBUF_inst	OBUF	IOB_X0Y139	IOB33.OUTBUF
+ACL_SCLK_OBUF_inst	OBUF	IOB_X0Y122	IOB33.OUTBUF
+AN_OBUF[0]_inst	OBUF	IOB_X0Y104	IOB33.OUTBUF
+AN_OBUF[1]_inst	OBUF	IOB_X0Y103	IOB33.OUTBUF
+AN_OBUF[2]_inst	OBUF	IOB_X0Y52	IOB33.OUTBUF
+AN_OBUF[3]_inst	OBUF	IOB_X0Y112	IOB33.OUTBUF
+AN_OBUF[4]_inst	OBUF	IOB_X0Y83	IOB33.OUTBUF
+AN_OBUF[5]_inst	OBUF	IOB_X0Y72	IOB33.OUTBUF
+AN_OBUF[6]_inst	OBUF	IOB_X1Y104	IOB33.OUTBUF
+AN_OBUF[7]_inst	OBUF	IOB_X0Y53	IOB33.OUTBUF
+AUD_PWM_OBUF_inst	OBUF	IOB_X0Y141	IOB33.OUTBUF
+AUD_SD_OBUF_inst	OBUF	IOB_X0Y138	IOB33.OUTBUF
+BTNC_IBUF_BUFG_inst	BUFG		
+BTNC_IBUF_inst	IBUF	IOB_X0Y82	IOB33.INBUF_EN
+BTNU_IBUF_inst	IBUF	IOB_X0Y91	IOB33.INBUF_EN
+CA_OBUF_inst	OBUF	IOB_X0Y51	IOB33.OUTBUF
+CB_OBUF_inst	OBUF	IOB_X0Y50	IOB33.OUTBUF
+CC_OBUF_inst	OBUF	IOB_X0Y100	IOB33.OUTBUF
+CD_OBUF_inst	OBUF	IOB_X0Y116	IOB33.OUTBUF
+CE_OBUF_inst	OBUF	IOB_X0Y74	IOB33.OUTBUF
+CF_OBUF_inst	OBUF	IOB_X0Y62	IOB33.OUTBUF
+CG_OBUF_inst	OBUF	IOB_X0Y92	IOB33.OUTBUF
+CLK100MHZ_IBUF_BUFG_inst	BUFG		
+CLK100MHZ_IBUF_inst	IBUF	IOB_X1Y126	IOB33.INBUF_EN
+DP_OBUF_inst	OBUF	IOB_X0Y111	IOB33.OUTBUF
+ETH_MDC_OBUF_inst	OBUF	IOB_X0Y178	IOB33.OUTBUF
+ETH_RSTN_OBUF_inst	OBUF	IOB_X1Y130	IOB33.OUTBUF
+ETH_TXD_OBUF[0]_inst	OBUF	IOB_X0Y172	IOB33.OUTBUF
+ETH_TXD_OBUF[1]_inst	OBUF	IOB_X0Y175	IOB33.OUTBUF
+ETH_TXEN_OBUF_inst	OBUF	IOB_X0Y177	IOB33.OUTBUF
+GND	GND		
+LED16_B_OBUF_inst	OBUF	IOB_X0Y90	IOB33.OUTBUF
+LED16_G_OBUF_inst	OBUF	IOB_X0Y80	IOB33.OUTBUF
+LED16_R_OBUF_inst	OBUF	IOB_X0Y78	IOB33.OUTBUF
+LED17_B_OBUF_inst	OBUF	IOB_X0Y119	IOB33.OUTBUF
+LED17_G_OBUF_inst	OBUF	IOB_X0Y99	IOB33.OUTBUF
+LED17_R_OBUF_inst	OBUF	IOB_X0Y77	IOB33.OUTBUF
+LED_OBUF[0]_inst	OBUF	IOB_X0Y114	IOB33.OUTBUF
+LED_OBUF[10]_inst	OBUF	IOB_X0Y56	IOB33.OUTBUF
+LED_OBUF[11]_inst	OBUF	IOB_X0Y69	IOB33.OUTBUF
+LED_OBUF[12]_inst	OBUF	IOB_X0Y68	IOB33.OUTBUF
+LED_OBUF[13]_inst	OBUF	IOB_X0Y55	IOB33.OUTBUF
+LED_OBUF[14]_inst	OBUF	IOB_X0Y59	IOB33.OUTBUF
+LED_OBUF[15]_inst	OBUF	IOB_X0Y57	IOB33.OUTBUF
+LED_OBUF[1]_inst	OBUF	IOB_X0Y102	IOB33.OUTBUF
+LED_OBUF[2]_inst	OBUF	IOB_X0Y115	IOB33.OUTBUF
+LED_OBUF[3]_inst	OBUF	IOB_X0Y84	IOB33.OUTBUF
+LED_OBUF[4]_inst	OBUF	IOB_X0Y86	IOB33.OUTBUF
+LED_OBUF[5]_inst	OBUF	IOB_X0Y63	IOB33.OUTBUF
+LED_OBUF[6]_inst	OBUF	IOB_X0Y66	IOB33.OUTBUF
+LED_OBUF[7]_inst	OBUF	IOB_X0Y64	IOB33.OUTBUF
+LED_OBUF[8]_inst	OBUF	IOB_X0Y67	IOB33.OUTBUF
+LED_OBUF[9]_inst	OBUF	IOB_X0Y71	IOB33.OUTBUF
+M_CLK_OBUF_inst	OBUF	IOB_X1Y100	IOB33.OUTBUF
+M_LRSEL_OBUF_inst	OBUF	IOB_X1Y149	IOB33.OUTBUF
+QSPI_CSN_OBUF_inst	OBUF	IOB_X0Y88	IOB33.OUTBUF
+SD_RESET_OBUF_inst	OBUF	IOB_X1Y122	IOB33.OUTBUF
+TMP_SCL_OBUF_inst	OBUF	IOB_X0Y147	IOB33.OUTBUF
+UART_CTS_OBUF_inst	OBUF	IOB_X1Y125	IOB33.OUTBUF
+UART_RXD_OUT_OBUF_inst	OBUF	IOB_X1Y127	IOB33.OUTBUF
+VCC	VCC		
+VGA_B_OBUF[0]_inst	OBUF	IOB_X1Y146	IOB33.OUTBUF
+VGA_B_OBUF[1]_inst	OBUF	IOB_X1Y141	IOB33.OUTBUF
+VGA_B_OBUF[2]_inst	OBUF	IOB_X1Y137	IOB33.OUTBUF
+VGA_B_OBUF[3]_inst	OBUF	IOB_X1Y142	IOB33.OUTBUF
+VGA_G_OBUF[0]_inst	OBUF	IOB_X1Y148	IOB33.OUTBUF
+VGA_G_OBUF[1]_inst	OBUF	IOB_X1Y143	IOB33.OUTBUF
+VGA_G_OBUF[2]_inst	OBUF	IOB_X1Y145	IOB33.OUTBUF
+VGA_G_OBUF[3]_inst	OBUF	IOB_X1Y144	IOB33.OUTBUF
+VGA_HS_OBUF_inst	OBUF	IOB_X0Y142	IOB33.OUTBUF
+VGA_R_OBUF[0]_inst	OBUF	IOB_X1Y133	IOB33.OUTBUF
+VGA_R_OBUF[1]_inst	OBUF	IOB_X1Y135	IOB33.OUTBUF
+VGA_R_OBUF[2]_inst	OBUF	IOB_X1Y147	IOB33.OUTBUF
+VGA_R_OBUF[3]_inst	OBUF	IOB_X1Y134	IOB33.OUTBUF
+VGA_VS_OBUF_inst	OBUF	IOB_X0Y143	IOB33.OUTBUF
+top0/AN_OBUF[1]_inst_i_1	LUT1		
+top0/CA_OBUF_inst_i_1	LUT5		
+top0/CB_OBUF_inst_i_1	LUT5		
+top0/CC_OBUF_inst_i_1	LUT5		
+top0/CD_OBUF_inst_i_1	LUT5		
+top0/CE_OBUF_inst_i_1	LUT5		
+top0/CF_OBUF_inst_i_1	LUT5		
+top0/CG_OBUF_inst_i_1	LUT5		
+top0/GND	GND		
+top0/VCC	VCC		
+top0/VCC_1	VCC		
+top0/clk_cnt0_carry	CARRY4		
+top0/clk_cnt0_carry__0	CARRY4		
+top0/clk_cnt0_carry__1	CARRY4		
+top0/clk_cnt0_carry__2	CARRY4		
+top0/clk_cnt0_carry__3	CARRY4		
+top0/clk_cnt0_carry__4	CARRY4		
+top0/clk_cnt0_carry__5	CARRY4		
+top0/clk_cnt[0]_i_2	LUT3		
+top0/clk_cnt[0]_i_3	LUT4		
+top0/clk_cnt[0]_i_4	LUT4		
+top0/clk_cnt[0]_i_5	LUT4		
+top0/clk_cnt[0]_i_6	LUT3		
+top0/clk_cnt[12]_i_2	LUT4		
+top0/clk_cnt[12]_i_3	LUT4		
+top0/clk_cnt[12]_i_4	LUT4		
+top0/clk_cnt[12]_i_5	LUT4		
+top0/clk_cnt[16]_i_2	LUT4		
+top0/clk_cnt[16]_i_3	LUT4		
+top0/clk_cnt[16]_i_4	LUT4		
+top0/clk_cnt[16]_i_5	LUT4		
+top0/clk_cnt[20]_i_2	LUT4		
+top0/clk_cnt[20]_i_3	LUT4		
+top0/clk_cnt[20]_i_4	LUT4		
+top0/clk_cnt[20]_i_5	LUT4		
+top0/clk_cnt[24]_i_2	LUT4		
+top0/clk_cnt[24]_i_3	LUT4		
+top0/clk_cnt[24]_i_4	LUT4		
+top0/clk_cnt[24]_i_5	LUT4		
+top0/clk_cnt[28]_i_2	LUT4		
+top0/clk_cnt[4]_i_2	LUT4		
+top0/clk_cnt[4]_i_3	LUT4		
+top0/clk_cnt[4]_i_4	LUT4		
+top0/clk_cnt[4]_i_5	LUT4		
+top0/clk_cnt[8]_i_2	LUT4		
+top0/clk_cnt[8]_i_3	LUT4		
+top0/clk_cnt[8]_i_4	LUT4		
+top0/clk_cnt[8]_i_5	LUT4		
+top0/clk_cnt_reg[0]	FDCE		
+top0/clk_cnt_reg[0]_i_1	CARRY4		
+top0/clk_cnt_reg[10]	FDCE		
+top0/clk_cnt_reg[11]	FDCE		
+top0/clk_cnt_reg[12]	FDCE		
+top0/clk_cnt_reg[12]_i_1	CARRY4		
+top0/clk_cnt_reg[13]	FDCE		
+top0/clk_cnt_reg[14]	FDCE		
+top0/clk_cnt_reg[15]	FDCE		
+top0/clk_cnt_reg[16]	FDCE		
+top0/clk_cnt_reg[16]_i_1	CARRY4		
+top0/clk_cnt_reg[17]	FDCE		
+top0/clk_cnt_reg[18]	FDCE		
+top0/clk_cnt_reg[19]	FDCE		
+top0/clk_cnt_reg[1]	FDCE		
+top0/clk_cnt_reg[20]	FDCE		
+top0/clk_cnt_reg[20]_i_1	CARRY4		
+top0/clk_cnt_reg[21]	FDCE		
+top0/clk_cnt_reg[22]	FDCE		
+top0/clk_cnt_reg[23]	FDCE		
+top0/clk_cnt_reg[24]	FDCE		
+top0/clk_cnt_reg[24]_i_1	CARRY4		
+top0/clk_cnt_reg[25]	FDCE		
+top0/clk_cnt_reg[26]	FDCE		
+top0/clk_cnt_reg[27]	FDCE		
+top0/clk_cnt_reg[28]	FDCE		
+top0/clk_cnt_reg[28]_i_1	CARRY4		
+top0/clk_cnt_reg[2]	FDCE		
+top0/clk_cnt_reg[3]	FDCE		
+top0/clk_cnt_reg[4]	FDCE		
+top0/clk_cnt_reg[4]_i_1	CARRY4		
+top0/clk_cnt_reg[5]	FDCE		
+top0/clk_cnt_reg[6]	FDCE		
+top0/clk_cnt_reg[7]	FDCE		
+top0/clk_cnt_reg[8]	FDCE		
+top0/clk_cnt_reg[8]_i_1	CARRY4		
+top0/clk_cnt_reg[9]	FDCE		
+top0/clk_max[0]_i_1	LUT2		
+top0/clk_max[1]_i_1	LUT6		
+top0/clk_max[1]_i_2	LUT3		
+top0/clk_max[2]_C_i_1	LUT6		
+top0/clk_max[2]_C_i_2	LUT3		
+top0/clk_max[2]_P_i_1	LUT6		
+top0/clk_max_reg[0]	FDCE		
+top0/clk_max_reg[1]	FDCE		
+top0/clk_max_reg[2]_C	FDCE		
+top0/clk_max_reg[2]_LDC	LDCE		
+top0/clk_max_reg[2]_LDC_i_1	LUT2		
+top0/clk_max_reg[2]_P	FDPE		
+top0/lfsr[0]_i_1	LUT2		
+top0/lfsr[4]_i_1	LUT1		
+top0/lfsr_reg[0]	FDPE		
+top0/lfsr_reg[1]	FDCE		
+top0/lfsr_reg[2]	FDCE		
+top0/lfsr_reg[3]	FDCE		
+top0/lfsr_reg[4]	FDCE		
+top0/o_random_out[3]_i_1	LUT3		
+top0/o_random_out_reg[0]	FDCE		
+top0/o_random_out_reg[1]	FDCE		
+top0/o_random_out_reg[2]	FDCE		
+top0/o_random_out_reg[3]	FDCE		
+top0/round_i_1	LUT3		
+top0/round_i_2	LUT2		
+top0/round_i_3	LUT5		
+top0/round_i_4	LUT5		
+top0/round_i_5	LUT6		
+top0/round_reg	FDCE		

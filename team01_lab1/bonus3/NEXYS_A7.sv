@@ -94,15 +94,36 @@ module NEXYS_A7(
 
 wire BTNU_down;
 wire BTNL_down;
+wire BTND_down;
+wire BTNR_down;
 wire [3:0] digit0,digit1,digit2,digit3,digit4,digit5,digit6,digit7;
 
-// values coming from Top (all 0-15, binary)
-wire [3:0] current_val;   // 目前數字
-wire [3:0] capture_val;   // 即時抓取
-wire [3:0] record_val;    // 紀錄
-wire [3:0] max_val;       // 最大值
+// values coming from Top (all 0-63, binary)
+wire [5:0] current_val;   // 目前數字
+wire [5:0] capture_val;   // 即時抓取
+wire [5:0] record_val;    // 紀錄
+wire [5:0] max_val;       // 最大值
 wire [15:0] led_progress;
-wire finish;
+wire paused;
+
+    // -----------------------------------------------------------------
+    // SW[6:0] priority encoder -> how many bits the random number uses.
+    // Highest switch that is ON wins, e.g. SW[4]=1 (others don't matter
+    // below it) -> range becomes 0 ~ 2^4-1 = 15.
+    // If none of SW[6:0] are on, fall back to the original 0~15 range.
+    // SW[15:7] are not used.
+    // -----------------------------------------------------------------
+    logic [2:0] range_bits;
+    always_comb begin
+        if      (SW[6]) range_bits = 3'd6;   // 0 ~ 63
+        else if (SW[5]) range_bits = 3'd5;   // 0 ~ 31
+        else if (SW[4]) range_bits = 3'd4;   // 0 ~ 15
+        else if (SW[3]) range_bits = 3'd3;   // 0 ~ 7
+        else if (SW[2]) range_bits = 3'd2;   // 0 ~ 3
+        else if (SW[1]) range_bits = 3'd1;   // 0 ~ 1
+        else if (SW[0]) range_bits = 3'd0;   // 0 only
+        else             range_bits = 3'd4;   // default: 0 ~ 15
+    end
 
     Seven_Segment_Display seven0(
     	.i_clk(CLK100MHZ),
@@ -139,34 +160,51 @@ wire finish;
         .o_pos(BTNL_down)
     );
 
+    Debounce deb2(
+        .i_in(BTND),
+        .i_clk(CLK100MHZ),
+        .i_rst(BTNC),
+        .o_pos(BTND_down)
+    );
+
+    Debounce deb3(
+        .i_in(BTNR),
+        .i_clk(CLK100MHZ),
+        .i_rst(BTNC),
+        .o_pos(BTNR_down)
+    );
+
     Top top0(
 	.i_clk(CLK100MHZ),
 	.i_rst(BTNC),
-	.i_start(BTNU_down),
+	.i_pause(BTNR_down),
+	.i_freq_up(BTNU_down),
+	.i_freq_down(BTND_down),
 	.i_capture(BTNL_down),
+	.i_range_bits(range_bits),
 	.o_random_out(current_val),
 	.o_capture(capture_val),
 	.o_record(record_val),
 	.o_max(max_val),
 	.o_led(led_progress),
-	.o_finish(finish)
+	.o_paused(paused)
     );
 
     // ---------------------------------------------------------------
-    // Binary (0-15) -> two decimal digits (tens/units), for each of
+    // Binary (0-63) -> two decimal digits (tens/units), for each of
     // the 4 quantities shown on the seven-segment display.
     // ---------------------------------------------------------------
-    wire [3:0] current_tens  = (current_val  >= 4'd10) ? 4'd1 : 4'd0;
-    wire [3:0] current_units = current_val  - current_tens*4'd10;
+    wire [3:0] current_tens  = current_val  / 10;
+    wire [3:0] current_units = current_val  % 10;
 
-    wire [3:0] capture_tens  = (capture_val  >= 4'd10) ? 4'd1 : 4'd0;
-    wire [3:0] capture_units = capture_val  - capture_tens*4'd10;
+    wire [3:0] capture_tens  = capture_val  / 10;
+    wire [3:0] capture_units = capture_val  % 10;
 
-    wire [3:0] record_tens   = (record_val   >= 4'd10) ? 4'd1 : 4'd0;
-    wire [3:0] record_units  = record_val   - record_tens*4'd10;
+    wire [3:0] record_tens   = record_val   / 10;
+    wire [3:0] record_units  = record_val   % 10;
 
-    wire [3:0] max_tens      = (max_val      >= 4'd10) ? 4'd1 : 4'd0;
-    wire [3:0] max_units     = max_val      - max_tens*4'd10;
+    wire [3:0] max_tens      = max_val      / 10;
+    wire [3:0] max_units     = max_val      % 10;
 
     // Display layout (left -> right) :  最大值 | 紀錄 | 即時抓取 | 目前數字
     // AN7 (leftmost) ... AN0 (rightmost)
@@ -179,10 +217,11 @@ wire finish;
     assign digit1 = current_tens;
     assign digit0 = current_units;
 
-    // LED progress bar: number of LEDs lit grows as the roll slows down,
-    // all 16 lit once it has stopped.
+    // LED bar: reflects the currently SELECTED speed (BTNU/BTND), not
+    // elapsed time - more LEDs lit means the selected speed is slower.
     assign LED = led_progress;
 
-    assign DP = 1'b1; // decimal point off
+    // decimal point lights up while paused, as a visual "pause" indicator
+    assign DP = paused ? 1'b0 : 1'b1;
 
 endmodule
