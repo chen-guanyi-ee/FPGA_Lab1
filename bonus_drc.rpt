@@ -1,9 +1,9 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Wed Sep 16 22:38:15 2026
+| Date         : Wed Sep 16 22:45:18 2026
 | Host         : DESKTOP-6EVF12B running 64-bit major release  (build 9200)
-| Command      : report_drc -file C:/Users/DCLAB/Documents/Codex/2026-09-15/https-github-com-chen-guanyi-ee/outputs/FPGA_Lab1/latest_drc.rpt
+| Command      : report_drc -file C:/Users/DCLAB/Documents/Codex/2026-09-15/https-github-com-chen-guanyi-ee/outputs/FPGA_Lab1/bonus_drc.rpt
 | Design       : NEXYS_A7
 | Device       : xc7a100tcsg324-1
 | Speed File   : -1
