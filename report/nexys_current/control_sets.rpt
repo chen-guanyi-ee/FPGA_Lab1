@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Sat Sep 19 23:04:13 2026
+| Date         : Sat Sep 19 23:34:24 2026
 | Host         : DESKTOP-6EVF12B running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file C:/Users/DCLAB/Documents/FPGA_Lab1/report/nexys_current/control_sets.rpt
 | Design       : NEXYS_A7
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     7 |
-|    Minimum number of control sets                        |     7 |
+| Total control sets                                       |     4 |
+|    Minimum number of control sets                        |     4 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    36 |
+| Unused register locations in slices containing registers |    15 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,8 +39,8 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     7 |
-| >= 0 to < 4        |     4 |
+| Total control sets |     4 |
+| >= 0 to < 4        |     1 |
 | >= 4 to < 6        |     2 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     0 |
@@ -58,28 +58,25 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               0 |            0 |
-| No           | No                    | Yes                    |              31 |           10 |
-| No           | Yes                   | No                     |               1 |            1 |
+| No           | No                    | No                     |               1 |            1 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              31 |            8 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              12 |            5 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               9 |            3 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+------------------------------+---------------------------------+------------------+----------------+--------------+
-|     Clock Signal     |         Enable Signal        |         Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------+------------------------------+---------------------------------+------------------+----------------+--------------+
-|  CLK100MHZ_IBUF_BUFG |                              | top0/clk_max_reg[2]_LDC_i_1_n_0 |                1 |              1 |         1.00 |
-|  CLK100MHZ_IBUF_BUFG | top0/clk_max_0               | BTNC_IBUF_BUFG                  |                1 |              1 |         1.00 |
-|  BTNC_IBUF_BUFG      |                              | top0/clk_max_reg[2]_LDC_i_1_n_0 |                1 |              1 |         1.00 |
-|  CLK100MHZ_IBUF_BUFG | top0/clk_max_0               | top0/round_i_2_n_0              |                1 |              2 |         2.00 |
-|  CLK100MHZ_IBUF_BUFG | top0/o_random_out[3]_i_1_n_0 | BTNC_IBUF_BUFG                  |                1 |              4 |         4.00 |
-|  CLK100MHZ_IBUF_BUFG | top0/clk_cnt1                | BTNC_IBUF_BUFG                  |                2 |              5 |         2.50 |
-|  CLK100MHZ_IBUF_BUFG |                              | top0/round_i_2_n_0              |                9 |             30 |         3.33 |
-+----------------------+------------------------------+---------------------------------+------------------+----------------+--------------+
++----------------------+------------------------------+-------------------------+------------------+----------------+--------------+
+|     Clock Signal     |         Enable Signal        |     Set/Reset Signal    | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+------------------------------+-------------------------+------------------+----------------+--------------+
+|  CLK100MHZ_IBUF_BUFG |                              |                         |                1 |              1 |         1.00 |
+|  CLK100MHZ_IBUF_BUFG | top0/o_random_out[3]_i_1_n_0 | BTNC_IBUF               |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | top0/lfsr[4]_i_1_n_0         | BTNC_IBUF               |                2 |              5 |         2.50 |
+|  CLK100MHZ_IBUF_BUFG |                              | top0/clk_max[1]_i_1_n_0 |                8 |             31 |         3.88 |
++----------------------+------------------------------+-------------------------+------------------+----------------+--------------+
 
 

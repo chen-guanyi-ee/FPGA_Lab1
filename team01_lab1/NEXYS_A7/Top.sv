@@ -6,12 +6,15 @@ module Top (
     output logic [3:0] o_random_out,
     output logic       o_scan
 );
-    logic [28:0] clk_cnt;
+    logic [27:0] clk_cnt;
     logic [2:0]  clk_max;
     logic [4:0]  lfsr;
     logic        round;
 
-    always_ff @(posedge i_clk or posedge i_rst or posedge i_start) begin
+    // Buttons are sampled by the 100 MHz clock.  They must not appear in the
+    // event control: doing so makes Vivado treat them as clocks and prevents
+    // placement on their ordinary I/O pins.
+    always_ff @(posedge i_clk) begin
         if (i_rst) begin
             clk_max       <= 3'd4;
             o_random_out  <= '0;
@@ -28,7 +31,7 @@ module Top (
             lfsr <= {lfsr[3:0], lfsr[4] ^ lfsr[2]};
             if (clk_max != 3'd4) begin
                 // Bit 25, 26, 27, then 28 selects progressively slower rates.
-                if (clk_cnt[25 + clk_max]) begin
+                if (clk_cnt[24 + clk_max]) begin
                     clk_cnt      <= '0;
                     o_random_out <= lfsr[3:0];
                     clk_max <= clk_max + round;

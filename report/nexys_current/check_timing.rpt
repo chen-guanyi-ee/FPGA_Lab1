@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Sat Sep 19 23:04:13 2026
+| Date         : Sat Sep 19 23:34:24 2026
 | Host         : DESKTOP-6EVF12B running 64-bit major release  (build 9200)
 | Command      : check_timing -verbose -file C:/Users/DCLAB/Documents/FPGA_Lab1/report/nexys_current/check_timing.rpt
 | Design       : NEXYS_A7
@@ -15,10 +15,10 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (1)
+1. checking no_clock (0)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (1)
+4. checking unconstrained_internal_endpoints (0)
 5. checking no_input_delay (2)
 6. checking no_output_delay (9)
 7. checking multiple_clock (0)
@@ -28,11 +28,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (1)
+1. checking no_clock (0)
 ------------------------
- There is 1 register/latch pin with no clock driven by root clock pin: BTNC (HIGH)
-
-top0/clk_max_reg[2]_LDC/G
+ There are 0 register/latch pins with no clock.
 
 
 2. checking constant_clock (0)
@@ -45,11 +43,9 @@ top0/clk_max_reg[2]_LDC/G
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (1)
+4. checking unconstrained_internal_endpoints (0)
 ------------------------------------------------
- There is 1 pin that is not constrained for maximum delay. (HIGH)
-
-top0/clk_max_reg[2]_LDC/CLR
+ There are 0 pins that are not constrained for maximum delay.
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 

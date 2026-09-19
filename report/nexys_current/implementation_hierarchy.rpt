@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Sat Sep 19 23:04:11 2026
+| Date         : Sat Sep 19 23:34:21 2026
 | Host         : DESKTOP-6EVF12B running 64-bit major release  (build 9200)
 | Command      : report_utilization -hierarchical -hierarchical_depth 10 -file C:/Users/DCLAB/Documents/FPGA_Lab1/report/nexys_current/implementation_hierarchy.rpt
 | Design       : NEXYS_A7
@@ -22,9 +22,9 @@ Table of Contents
 +--------------+--------+------------+------------+---------+------+-----+--------+--------+------------+
 |   Instance   | Module | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
 +--------------+--------+------------+------------+---------+------+-----+--------+--------+------------+
-| NEXYS_A7     |  (top) |         44 |         44 |       0 |    0 |  44 |      0 |      0 |          0 |
+| NEXYS_A7     |  (top) |         40 |         40 |       0 |    0 |  41 |      0 |      0 |          0 |
 |   (NEXYS_A7) |  (top) |          0 |          0 |       0 |    0 |   0 |      0 |      0 |          0 |
-|   top0       |    Top |         44 |         44 |       0 |    0 |  44 |      0 |      0 |          0 |
+|   top0       |    Top |         40 |         40 |       0 |    0 |  41 |      0 |      0 |          0 |
 +--------------+--------+------------+------------+---------+------+-----+--------+--------+------------+
 * Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
 

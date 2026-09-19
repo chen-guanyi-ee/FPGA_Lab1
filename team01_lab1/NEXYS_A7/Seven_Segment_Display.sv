@@ -1,12 +1,12 @@
 module Seven_Segment_Display(
  input i_clk,i_rst,input i_scan,input [3:0] random_value,
  output CA,CB,CC,CD,CE,CF,CG, output logic [7:0] o_an);
- logic scan_r; logic [3:0] selected; logic [6:0] seg;
+ logic scan_r; logic [3:0] selected; logic [3:0] decimal_tens, decimal_ones; logic [6:0] seg;
  assign scan_r = i_scan;
+ assign decimal_tens = (random_value >= 4'd10) ? 4'd1 : 4'd0;
+ assign decimal_ones = (random_value >= 4'd10) ? (random_value - 4'd10) : random_value;
  always_comb begin
-   case(scan_r)
-    0:selected=i_digit0; default:selected=i_digit1;
-   endcase
+   selected = scan_r ? decimal_tens : decimal_ones;
    // Active-low enables: only digit0 or digit1 is enabled at a time.
    o_an = scan_r ? 8'b11111101 : 8'b11111110;
  end
