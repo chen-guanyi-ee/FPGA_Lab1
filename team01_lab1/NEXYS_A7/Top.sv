@@ -6,10 +6,15 @@ module Top (
     output logic [3:0] o_random_out,
     output logic       o_scan
 );
-    localparam integer TIMER_BASE_BIT = 22;
+    // Three speed stages keep the animation close to the original duration
+    // while reducing the timer select and stage-control logic.
+    localparam integer TIMER_BASE_BIT = 23;
+    localparam integer TIMER_STAGES   = 3;
+    localparam integer TIMER_MAX_BIT  = TIMER_BASE_BIT + TIMER_STAGES - 1;
+    localparam logic [1:0] STOP_STAGE = 2'd3;
 
-    logic [27:0] clk_cnt;
-    logic [2:0]  clk_max;
+    logic [TIMER_MAX_BIT:0] clk_cnt;
+    logic [1:0]  clk_max;
     logic [1:0]  repeat_cnt;
     logic [4:0]  lfsr;
 
@@ -18,10 +23,11 @@ module Top (
     // placement on their ordinary I/O pins.
     always_ff @(posedge i_clk) begin
         if (i_rst) begin
-            clk_max       <= 3'd4;
+            clk_max       <= STOP_STAGE;
             o_random_out  <= '0;
             clk_cnt <= '0;
-            lfsr    <= 5'b00001;
+            // XNOR feedback lets every LFSR bit use the same zero reset.
+            lfsr    <= 5'b00000;
             repeat_cnt <= '0;
         end else if (i_start) begin
             clk_cnt       <= '0;
@@ -30,11 +36,11 @@ module Top (
         end else begin
             // Shared counter also provides the two-digit display scan clock.
             clk_cnt <= clk_cnt + 1'b1;
-            lfsr <= {lfsr[3:0], lfsr[4] ^ lfsr[2]};
-            if (clk_max != 3'd4) begin
-                // Use four progressively slower rates and show four values at
+            lfsr <= {lfsr[3:0], ~(lfsr[4] ^ lfsr[2])};
+            if (clk_max < STOP_STAGE) begin
+                // Use three progressively slower rates and show four values at
                 // each rate before keeping the final result on the display.
-                if (clk_cnt[TIMER_BASE_BIT + clk_max]) begin
+                if (clk_cnt[TIMER_BASE_BIT + int'(clk_max)]) begin
                     clk_cnt      <= '0;
                     o_random_out <= lfsr[3:0];
                     if (repeat_cnt == 2'd3) begin
