@@ -55,3 +55,7 @@ clk_cnt [30:0]會不會耗太多資源?有沒有更好的方法?隨機方式可�
 - 將 LFSR 改為 zero-seed XNOR feedback，使相關 registers 一致 reset 。
 - 桌機 Vivado implementation 實測 Slice = 18，低於 baseline 40。
 - 研究後續 area optimization：規劃比較 `Flow_AreaOptimized_high` 搭配 `Area_Explore`、`Area_ExploreSequential` 與 `Area_ExploreWithRemap`，並以 implemented Slice、Timing 和板上功能作為最終判定依據。
+
+## 2026/09/19 陳冠亦
+- clk_cnt/clk_max 改成lfsr形式
+- slice=9
