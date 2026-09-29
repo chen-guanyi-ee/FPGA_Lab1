@@ -94,27 +94,20 @@ wire [3:0] random_value;
 wire scan_value;
 Top top0(.i_clk(CLK100MHZ), .i_rst(BTNC), .i_start(BTNU),
          .o_random_out(random_value), .o_scan(scan_value));
-logic [3:0] decimal_tens, decimal_ones, selected_digit;
-logic [6:0] seg;
-assign decimal_tens = (random_value >= 4'd10) ? 4'd1 : 4'd0;
-assign decimal_ones = (random_value >= 4'd10) ? (random_value - 4'd10) : random_value;
-assign selected_digit = scan_value ? decimal_tens : decimal_ones;
-assign {CG,CF,CE,CD,CC,CB,CA} = seg;
 assign AN = scan_value ? 8'b11111101 : 8'b11111110;
-always_comb begin
-  case(selected_digit)
-   4'd0: seg = 7'b1000000;
-   4'd1: seg = 7'b1111001;
-   4'd2: seg = 7'b0100100;
-   4'd3: seg = 7'b0110000;
-   4'd4: seg = 7'b0011001;
-   4'd5: seg = 7'b0010010;
-   4'd6: seg = 7'b0000010;
-   4'd7: seg = 7'b1111000;
-   4'd8: seg = 7'b0000000;
-   default: seg = 7'b0010000;
-  endcase
-end
+assign {CG,CF,CE,CD,CC,CB,CA} =
+    scan_value
+        ? ((random_value >= 4'd10) ? 7'b1111001 : 7'b1000000)
+        : (((random_value == 4'd0) || (random_value == 4'd10)) ? 7'b1000000 :
+           ((random_value == 4'd1) || (random_value == 4'd11)) ? 7'b1111001 :
+           ((random_value == 4'd2) || (random_value == 4'd12)) ? 7'b0100100 :
+           ((random_value == 4'd3) || (random_value == 4'd13)) ? 7'b0110000 :
+           ((random_value == 4'd4) || (random_value == 4'd14)) ? 7'b0011001 :
+           ((random_value == 4'd5) || (random_value == 4'd15)) ? 7'b0010010 :
+           (random_value == 4'd6) ? 7'b0000010 :
+           (random_value == 4'd7) ? 7'b1111000 :
+           (random_value == 4'd8) ? 7'b0000000 :
+                                    7'b0010000);
 assign DP = 1'b1;
 assign LED = 16'b0;
 assign {LED16_B,LED16_G,LED16_R,LED17_B,LED17_G,LED17_R} = 6'b0;
@@ -127,3 +120,4 @@ assign {UART_RXD_OUT,UART_CTS} = 2'b11;
 assign {ETH_MDC,ETH_RSTN,ETH_TXEN,ETH_TXD} = 5'b0;
 assign QSPI_CSN = 1'b1;
 endmodule
+
