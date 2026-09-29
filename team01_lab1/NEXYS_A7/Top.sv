@@ -9,7 +9,7 @@ module Top (
 
     logic [2:0]  clk_cnt;
     logic [2:0]  clk_max = 3'd4;
-    logic repeat_cnt;
+    logic [1:0]repeat_cnt;
     logic [3:0]  lfsr;
     logic [22:0] clk_cnt_23 = 23'd1;
     wire [2:0] clk_max_next;
@@ -33,10 +33,10 @@ module Top (
             if(clk_cnt_23 == 23'd1 && clk_max != 3'd4) begin
                 if (clk_cnt == 3'd1) begin
                     o_random_out <= lfsr;
-                    if (repeat_cnt) begin
+                    if (repeat_cnt ==2'd2) begin
                         clk_max <= clk_max_next;
                     end
-                    repeat_cnt <= ~repeat_cnt;
+                    repeat_cnt <= {repeat_cnt[0],~repeat_cnt[1]};
                     clk_cnt <= clk_max;
                 end else begin
                     clk_cnt <= {clk_cnt[0] ^ clk_cnt[1], clk_cnt[2:1]};
