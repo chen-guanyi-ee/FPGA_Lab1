@@ -1,0 +1,4 @@
+
+*** Running vivado
+    with args -log NEXYS_A7.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source NEXYS_A7.tcl
+

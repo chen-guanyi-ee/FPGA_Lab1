@@ -1,0 +1,50 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Sep 29 19:40:03 2026
+# Process ID         : 7552
+# Current directory  : C:/Users/DCLAB/Documents/FPGA_Lab1
+# Command line       : vivado.exe -mode batch -source C:\Users\DCLAB\Documents\FPGA_Lab1\scripts\program_nexys.tcl -nojournal -log C:\Users\DCLAB\Documents\FPGA_Lab1\report\project7\vivado_program.log
+# Log file           : C:/Users/DCLAB/Documents/FPGA_Lab1/report/project7/vivado_program.log
+# Journal file       : 
+# Running On         : DESKTOP-6EVF12B
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 19045
+# Processor Detail   : Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz
+# CPU Frequency      : 3600 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 34237 MB
+# Swap memory        : 5100 MB
+# Total Virtual      : 39338 MB
+# Available Virtual  : 29526 MB
+#-----------------------------------------------------------
+CRITICAL WARNING: [Common 17-741] No write access right to the local Tcl store at 'C'. XilinxTclStore is reverted to the installation area. If you want to use local Tcl Store, please change the access right and relaunch Vivado.
+source {C:\Users\DCLAB\Documents\FPGA_Lab1\scripts\program_nexys.tcl}
+# set root [file normalize [file join [file dirname [info script]] ..]]
+# set bitfile [file join $root report project7 NEXYS_A7.bit]
+# open_hw_manager
+# connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2024.2
+  **** Build date : Oct 29 2024 at 10:25:41
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+ERROR: [Labtools 27-3733] Error during cs_server initialization: Unable to connect to cs_server at URL: TCP:localhost:0.
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 372.160 ; gain = 3.945
+ERROR: [Common 17-39] 'connect_hw_server' failed due to earlier errors.
+
+    while executing
+"connect_hw_server"
+    (file "C:\Users\DCLAB\Documents\FPGA_Lab1\scripts\program_nexys.tcl" line 5)
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 29 19:40:14 2026...

@@ -1,0 +1,104 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Thu Sep 24 20:32:52 2026
+| Host         : DESKTOP-6EVF12B running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file NEXYS_A7_control_sets_placed.rpt
+| Design       : NEXYS_A7
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    26 |
+|    Minimum number of control sets                        |    26 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    90 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    26 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |    11 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     4 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     1 |
+| >= 16              |     8 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              52 |           19 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             158 |           44 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             196 |           47 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+------------------------------+--------------------------------+------------------+----------------+--------------+
+|     Clock Signal     |         Enable Signal        |        Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+------------------------------+--------------------------------+------------------+----------------+--------------+
+|  CLK100MHZ_IBUF_BUFG |                              | freq_b2b/p_26_out              |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                              | freq_b2b/o_bcd_reg[24]_0[0]    |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                              | freq_b2b/o_bcd_reg[19]_0[0]    |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                              | freq_b2b/SR[0]                 |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                              | freq_b2b/o_bcd_reg[16]_0[0]    |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                              | freq_b2b/o_bcd_reg[8]_0[0]     |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                              | freq_b2b/o_bcd_reg[31]_1[0]    |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                              | fps_b2b/SR[0]                  |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                              | fps_b2b/o_bcd_reg[11]_1[0]     |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | top0/o_random_out[3]_i_1_n_0 | BTNC_IBUF                      |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | top0/lfsr[3]_i_1_n_0         | BTNC_IBUF                      |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG |                              | rst                            |                3 |              8 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | vga_t/pix_en                 | rst                            |                4 |             10 |         2.50 |
+|  CLK100MHZ_IBUF_BUFG | vga_t/v_r[9]_i_1_n_0         | rst                            |                3 |             10 |         3.33 |
+|  CLK100MHZ_IBUF_BUFG | fps_cnt/o_valid_i_1__0_n_0   | rst                            |                2 |             10 |         5.00 |
+|  CLK100MHZ_IBUF_BUFG | fps_b2b/bin_r[9]_i_1_n_0     | rst                            |                2 |             10 |         5.00 |
+|  CLK100MHZ_IBUF_BUFG | fps_b2b/o_bcd[11]_i_1_n_0    | rst                            |                3 |             12 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | fps_b2b/busy_reg_0           | fps_b2b/cnt[2]_i_1__0_n_0      |                4 |             14 |         3.50 |
+|  CLK100MHZ_IBUF_BUFG |                              | top0/clk_cnt_23[22]_i_1_n_0    |                6 |             23 |         3.83 |
+|  CLK100MHZ_IBUF_BUFG | freq_cnt/o_valid_i_1_n_0     | rst                            |                7 |             27 |         3.86 |
+|  CLK100MHZ_IBUF_BUFG | freq_b2b/cnt[4]_i_1_n_0      | rst                            |                6 |             31 |         5.17 |
+|  CLK100MHZ_IBUF_BUFG | freq_b2b/o_bcd[31]_i_1_n_0   | rst                            |                7 |             32 |         4.57 |
+|  CLK100MHZ_IBUF_BUFG | freq_b2b/busy_reg_0          | freq_b2b/bcd_r[31]_i_1_n_0     |                7 |             32 |         4.57 |
+|  CLK100MHZ_IBUF_BUFG |                              | fps_cnt/gate_cnt[0]_i_1__0_n_0 |               12 |             37 |         3.08 |
+|  CLK100MHZ_IBUF_BUFG |                              |                                |               19 |             52 |         2.74 |
+|  CLK100MHZ_IBUF_BUFG |                              | freq_cnt/gate_cnt[0]_i_1_n_0   |               14 |             54 |         3.86 |
++----------------------+------------------------------+--------------------------------+------------------+----------------+--------------+
+
+

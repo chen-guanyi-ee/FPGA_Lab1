@@ -1,5 +1,5 @@
 set root [file normalize [file join [file dirname [info script]] ..]]
-set bitfile [file join $root report nexys_current NEXYS_A7.bit]
+set bitfile [file join $root report project7 NEXYS_A7.bit]
 
 open_hw_manager
 connect_hw_server
@@ -11,8 +11,8 @@ if {[llength $devices] != 1} {
 }
 set device [lindex $devices 0]
 puts "HW_PART: [get_property PART $device]"
-if {[get_property PART $device] ne "xc7a100t_0"} {
-    error "Expected Nexys A7-100T (xc7a100t_0)"
+if {[get_property PART $device] ne "xc7a100t"} {
+    error "Expected Nexys A7-100T (xc7a100t)"
 }
 set_property PROGRAM.FILE $bitfile $device
 program_hw_devices $device

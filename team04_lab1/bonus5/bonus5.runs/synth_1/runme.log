@@ -1,0 +1,462 @@
+
+*** Running vivado
+    with args -log NEXYS_A7.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source NEXYS_A7.tcl
+
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Thu Sep 24 21:35:33 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source NEXYS_A7.tcl -notrace
+Command: synth_design -top NEXYS_A7 -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 8544
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1041.762 ; gain = 467.777
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'NEXYS_A7' [C:/Users/DCLAB/Downloads/bonus/NEXYS_A7.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'Debounce' [C:/Users/DCLAB/Downloads/bonus/Debounce.sv:1]
+	Parameter CNT_N bound to: 1000000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Debounce' (0#1) [C:/Users/DCLAB/Downloads/bonus/Debounce.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'Top' [C:/Users/DCLAB/Downloads/bonus/Top.sv:18]
+INFO: [Synth 8-6155] done synthesizing module 'Top' (0#1) [C:/Users/DCLAB/Downloads/bonus/Top.sv:18]
+INFO: [Synth 8-6157] synthesizing module 'Vga_Timing' [C:/Users/DCLAB/Downloads/bonus/Vga_Timing.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'Vga_Timing' (0#1) [C:/Users/DCLAB/Downloads/bonus/Vga_Timing.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'Vga_Bonus' [C:/Users/DCLAB/Downloads/bonus/Vga_Bonus.sv:20]
+INFO: [Synth 8-6155] done synthesizing module 'Vga_Bonus' (0#1) [C:/Users/DCLAB/Downloads/bonus/Vga_Bonus.sv:20]
+INFO: [Synth 8-6155] done synthesizing module 'NEXYS_A7' (0#1) [C:/Users/DCLAB/Downloads/bonus/NEXYS_A7.sv:1]
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[15] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[14] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[13] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[12] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[11] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[10] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[9] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[8] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[6] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[5] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[4] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[3] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED16_B driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED16_G driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED16_R driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED17_B driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED17_G driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED17_R driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port DP driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port SD_RESET driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ACL_MOSI driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ACL_SCLK driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ACL_CSN driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port TMP_SCL driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port M_CLK driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port M_LRSEL driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AUD_PWM driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AUD_SD driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port UART_RXD_OUT driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port UART_CTS driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_MDC driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_RSTN driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_TXEN driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_TXD[1] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_TXD[0] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port QSPI_CSN driven by constant 1
+WARNING: [Synth 8-7129] Port JA[10] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[9] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[8] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[7] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[6] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[5] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[4] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[3] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JA[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[10] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[9] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[8] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[7] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[6] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[5] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[4] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[3] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JB[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[10] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[9] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[8] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[7] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[6] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[5] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[4] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[3] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JC[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[10] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[9] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[8] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[7] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[6] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[5] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[4] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[3] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port JD[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_N[4] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_N[3] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_N[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_N[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_N[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_P[4] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_P[3] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_P[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_P[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port XA_P[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SD_SCK in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SD_CMD in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SD_DAT[3] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SD_DAT[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SD_DAT[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SD_DAT[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TMP_SDA in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PS2_CLK in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PS2_DATA in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ETH_MDIO in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ETH_CRSDV in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ETH_RXERR in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ETH_RXD[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ETH_RXD[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ETH_REFCLK in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ETH_INTN in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port QSPI_DQ[3] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port QSPI_DQ[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port QSPI_DQ[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port QSPI_DQ[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[15] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[14] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[13] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[12] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[11] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[10] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[9] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[8] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[7] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[6] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[5] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[4] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[3] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SW[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CPU_RESETN in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SD_CD in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ACL_MISO in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ACL_INT[2] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ACL_INT[1] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ACL_INT[0] in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TMP_INT in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TMP_CT in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_DATA in module NEXYS_A7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port UART_TXD_IN in module NEXYS_A7 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1153.852 ; gain = 579.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1153.852 ; gain = 579.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1153.852 ; gain = 579.867
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1153.852 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/DCLAB/Downloads/bonus/Nexys-A7-100T-Master.xdc]
+Finished Parsing XDC File [C:/Users/DCLAB/Downloads/bonus/Nexys-A7-100T-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/DCLAB/Downloads/bonus/Nexys-A7-100T-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/NEXYS_A7_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/NEXYS_A7_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1239.762 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1239.762 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1239.762 ; gain = 665.777
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1239.762 ; gain = 665.777
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1239.762 ; gain = 665.777
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1239.762 ; gain = 665.777
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   27 Bit       Adders := 1     
+	   2 Input   20 Bit       Adders := 4     
+	   2 Input   10 Bit       Adders := 2     
+	   3 Input   10 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 6     
+	   2 Input    3 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
++---XORs : 
+	   4 Input      1 Bit         XORs := 1     
++---Registers : 
+	               20 Bit    Registers := 4     
+	               16 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 1     
+	                7 Bit    Registers := 8     
+	                6 Bit    Registers := 5     
+	                4 Bit    Registers := 9     
+	                3 Bit    Registers := 6     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 32    
++---ROMs : 
+	                    ROMs := 1     
++---Muxes : 
+	   8 Input   27 Bit        Muxes := 1     
+	   2 Input   20 Bit        Muxes := 4     
+	   6 Input   12 Bit        Muxes := 1     
+	   4 Input   12 Bit        Muxes := 3     
+	   2 Input   10 Bit        Muxes := 2     
+	   4 Input   10 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 12    
+	   8 Input    4 Bit        Muxes := 1     
+	   5 Input    4 Bit        Muxes := 2     
+	   8 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 5     
+	   3 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[15] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[14] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[13] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[12] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[11] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[10] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[9] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[8] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[6] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[5] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[4] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED[3] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED16_B driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED16_G driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED16_R driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED17_B driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED17_G driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port LED17_R driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port DP driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AN[7] driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AN[6] driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AN[5] driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AN[4] driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AN[3] driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AN[2] driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port SD_RESET driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ACL_MOSI driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ACL_SCLK driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ACL_CSN driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port TMP_SCL driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port M_CLK driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port M_LRSEL driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AUD_PWM driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port AUD_SD driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port UART_RXD_OUT driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port UART_CTS driven by constant 1
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_MDC driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_RSTN driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_TXEN driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_TXD[1] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port ETH_TXD[0] driven by constant 0
+WARNING: [Synth 8-3917] design NEXYS_A7 has port QSPI_CSN driven by constant 1
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1239.762 ; gain = 665.777
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|Vga_Bonus   | sel        | 512x6         | Block RAM      | 
++------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1355.672 ; gain = 781.688
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1393.156 ; gain = 819.172
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance vga_b/sel (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1406.465 ; gain = 832.480
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1588.512 ; gain = 1014.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1588.512 ; gain = 1014.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1588.512 ; gain = 1014.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1588.512 ; gain = 1014.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1589.512 ; gain = 1015.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1589.512 ; gain = 1015.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |    46|
+|3     |LUT1     |    87|
+|4     |LUT2     |    37|
+|5     |LUT3     |    66|
+|6     |LUT4     |   104|
+|7     |LUT5     |   125|
+|8     |LUT6     |   111|
+|9     |MUXF7    |     1|
+|10    |RAMB18E1 |     1|
+|11    |FDCE     |    68|
+|12    |FDPE     |    28|
+|13    |FDRE     |   167|
+|14    |FDSE     |    13|
+|15    |IBUF     |     6|
+|16    |OBUF     |    69|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1589.512 ; gain = 1015.527
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 144 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 1589.512 ; gain = 929.617
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1589.512 ; gain = 1015.527
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1598.672 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 48 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1602.359 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 22fbca7d
+INFO: [Common 17-83] Releasing license: Synthesis
+27 Infos, 179 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:54 . Memory (MB): peak = 1602.359 ; gain = 1236.094
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1602.359 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus5/bonus5.runs/synth_1/NEXYS_A7.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file NEXYS_A7_utilization_synth.rpt -pb NEXYS_A7_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Sep 24 21:36:32 2026...
