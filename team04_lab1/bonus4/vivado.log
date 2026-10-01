@@ -3,12 +3,12 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Thu Oct  1 20:32:29 2026
-# Process ID         : 9480
-# Current directory  : C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus5
-# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent15056 C:\Users\DCLAB\Documents\FPGA_Lab1\team04_lab1\bonus5\bonus5.xpr
-# Log file           : C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus5/vivado.log
-# Journal file       : C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus5\vivado.jou
+# Start of session at: Thu Oct  1 20:29:41 2026
+# Process ID         : 16656
+# Current directory  : C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus4
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent272 C:\Users\DCLAB\Documents\FPGA_Lab1\team04_lab1\bonus4\bonus4.xpr
+# Log file           : C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus4/vivado.log
+# Journal file       : C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus4\vivado.jou
 # Running On         : DESKTOP-6EVF12B
 # Platform           : Windows Server 2016 or Windows 10
 # Operating System   : 19045
@@ -19,16 +19,17 @@
 # Host memory        : 34237 MB
 # Swap memory        : 5100 MB
 # Total Virtual      : 39338 MB
-# Available Virtual  : 34720 MB
+# Available Virtual  : 34755 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus5/bonus5.xpr
-INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus5/bonus5.gen/sources_1'.
+open_project C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus4/bonus4.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus4/bonus4.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx1/Vivado/2024.2/data/ip'.
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 1249.312 ; gain = 145.926
 update_compile_order -fileset sources_1
 open_hw_manager
 connect_hw_server -allow_non_jtag
@@ -54,19 +55,20 @@ INFO: [Labtools 27-2221] Launch Output:
 
 
 
-connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1261.734 ; gain = 5.234
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1265.281 ; gain = 0.000
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292BF6D74A
-set_property PROGRAM.FILE {C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus5/bonus5.runs/impl_1/NEXYS_A7.bit} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus4/bonus4.runs/impl_1/NEXYS_A7.bit} [get_hw_devices xc7a100t_0]
 current_hw_device [get_hw_devices xc7a100t_0]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus5/bonus5.runs/impl_1/NEXYS_A7.bit} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/DCLAB/Documents/FPGA_Lab1/team04_lab1/bonus4/bonus4.runs/impl_1/NEXYS_A7.bit} [get_hw_devices xc7a100t_0]
 program_hw_devices [get_hw_devices xc7a100t_0]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_hw_manager
 exit
-INFO: [Common 17-206] Exiting Vivado at Thu Oct  1 20:57:51 2026...
+INFO: [Common 17-206] Exiting Vivado at Thu Oct  1 20:32:21 2026...

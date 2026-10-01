@@ -120,3 +120,4 @@ assign {UART_RXD_OUT,UART_CTS} = 2'b11;
 assign {ETH_MDC,ETH_RSTN,ETH_TXEN,ETH_TXD} = 5'b0;
 assign QSPI_CSN = 1'b1;
 endmodule
+

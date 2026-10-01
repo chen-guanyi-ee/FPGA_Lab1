@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1790253063" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Seven_Segment_Display.dcp">
-  <File Type="PA-TCL" Name="NEXYS_A7.tcl"/>
   <File Type="REPORTS-TCL" Name="NEXYS_A7_reports.tcl"/>
-  <File Type="RDS-RDS" Name="NEXYS_A7.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="NEXYS_A7_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="NEXYS_A7_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="NEXYS_A7_utilization_synth.pb"/>
+  <File Type="PA-TCL" Name="NEXYS_A7.tcl"/>
+  <File Type="RDS-RDS" Name="NEXYS_A7.vds"/>
   <File Type="RDS-DCP" Name="NEXYS_A7.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="NEXYS_A7_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="NEXYS_A7_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../../../../Downloads/files/Bin2Bcd.sv">
@@ -93,9 +90,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>
